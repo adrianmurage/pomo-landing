@@ -3,10 +3,10 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://adrianmurage.github.io',
   base: '/pomo-landing',
-  output: 'static',
-  integrations: [],
+  trailingSlash: 'always',
+  outDir: './dist',
   build: {
-    assets: 'assets',
-    client: 'client',
+    format: 'directory'
   },
+  integrations: []
 });
