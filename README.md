@@ -2,7 +2,7 @@
 
 A modern, clean Pomodoro timer application built with Astro. Boost your productivity with focused work sessions and scheduled breaks using the Pomodoro Technique.
 
-![PomodoroFocus Screenshot](screenshot.png)
+Live demo: [PomodoroFocus](https://adrianmurage.github.io/pomo-landing/)
 
 ## Features
 
@@ -25,7 +25,7 @@ A modern, clean Pomodoro timer application built with Astro. Boost your producti
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/pomo-landing.git
+   git clone https://github.com/adrianmurage/pomo-landing.git
    cd pomo-landing
    ```
 
@@ -85,10 +85,22 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Author
 
-Your Name ([@yourusername](https://github.com/yourusername))
+Adrian Murage ([@adrianmurage](https://github.com/adrianmurage))
 
 ## Acknowledgments
 
 - The Pomodoro Technique was developed by Francesco Cirillo
 - Icons provided by Feather Icons
-- Built with Astro
+- Built with [Astro](https://astro.build)
+- Deployed on GitHub Pages
+
+## Development
+
+The project is built with Astro and uses GitHub Actions for continuous deployment to GitHub Pages. Any push to the main branch will trigger an automatic build and deployment.
+
+To contribute:
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
