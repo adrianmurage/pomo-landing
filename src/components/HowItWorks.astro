@@ -1,0 +1,194 @@
+---
+---
+
+<section id="how-it-works" class="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <h2>How the Pomodoro Technique Works</h2>
+      <p>A time-tested method for improved focus and productivity</p>
+    </div>
+    
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Choose a Task</h3>
+          <p>Select a task you want to work on. It could be studying, writing, coding, or any work that requires your focus.</p>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Set the Timer</h3>
+          <p>Set your timer for 25 minutes – this is one "Pomodoro" session. Commit to focusing solely on your task for this time.</p>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Work Until the Timer Rings</h3>
+          <p>Work on your task with full concentration. If a distraction pops into your head, write it down and come back to it later.</p>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Take a Short Break</h3>
+          <p>When the timer rings, take a 5-minute break. Stand up, stretch, grab some water, or do something relaxing.</p>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3>Repeat the Process</h3>
+          <p>After your break, start another 25-minute Pomodoro. After completing 4 Pomodoros, take a longer 15-30 minute break.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="benefits">
+      <h3>Benefits of the Pomodoro Technique</h3>
+      <ul>
+        <li>Reduces mental fatigue and burnout</li>
+        <li>Increases focus and concentration</li>
+        <li>Helps manage distractions effectively</li>
+        <li>Creates a sustainable work rhythm</li>
+        <li>Improves time awareness and planning</li>
+        <li>Makes large tasks more manageable</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .how-it-works {
+    padding: 6rem 0;
+    background-color: white;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+
+  .section-header p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: var(--accent);
+    color: white;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .step-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+
+  .step-content p {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .benefits {
+    background-color: #f9f9f9;
+    padding: 2.5rem;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .benefits h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+    text-align: center;
+  }
+
+  .benefits ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 2rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .benefits li {
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 1.6;
+    color: #555;
+  }
+
+  .benefits li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent);
+    border-radius: 50%;
+  }
+
+  @media (max-width: 768px) {
+    .section-header h2 {
+      font-size: 2rem;
+    }
+
+    .section-header p {
+      font-size: 1.1rem;
+    }
+
+    .benefits ul {
+      grid-template-columns: 1fr;
+    }
+
+    .how-it-works {
+      padding: 4rem 0;
+    }
+  }
+</style>

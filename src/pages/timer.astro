@@ -1,0 +1,426 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="PomodoroFocus - Timer">
+	<Header />
+	<main>
+		<div class="timer-container">
+			<div class="timer-card">
+				<div class="timer-header">
+					<h1>Pomodoro Timer</h1>
+					<div class="timer-modes">
+						<button class="mode-button active" data-mode="pomodoro" data-time="25">Pomodoro</button>
+						<button class="mode-button" data-mode="short-break" data-time="5">Short Break</button>
+						<button class="mode-button" data-mode="long-break" data-time="15">Long Break</button>
+					</div>
+				</div>
+
+				<div class="timer-display">
+					<span id="time-remaining">25:00</span>
+				</div>
+
+				<div class="timer-label" id="status-text">Time to focus!</div>
+
+				<div class="timer-controls">
+					<button id="start-button" class="control-button primary">
+						Start
+					</button>
+					<button id="reset-button" class="control-button secondary">
+						Reset
+					</button>
+				</div>
+
+				<div class="timer-counter">
+					<span>Session #<span id="session-count">1</span></span>
+				</div>
+			</div>
+
+			<div class="task-section">
+				<h2>Current Task</h2>
+				<div class="task-input-container">
+					<input type="text" id="task-input" placeholder="What are you working on?" />
+					<button id="save-task" class="task-button">Save</button>
+				</div>
+				<div class="tasks-container">
+					<h3>Today's Tasks</h3>
+					<ul id="task-list">
+						<li class="task-item">
+							<span class="task-name">Example task</span>
+							<span class="task-pomodoros">0/4</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	main {
+		padding: 2rem 1.5rem 4rem;
+		background-color: #f9f9f9;
+		min-height: calc(100vh - 300px);
+	}
+
+	.timer-container {
+		max-width: 1000px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+	}
+
+	.timer-card {
+		background-color: white;
+		border-radius: 16px;
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+		padding: 2.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.timer-header {
+		margin-bottom: 2rem;
+		width: 100%;
+	}
+
+	h1 {
+		font-size: 2rem;
+		margin-bottom: 1.5rem;
+		color: var(--text);
+	}
+
+	.timer-modes {
+		display: flex;
+		gap: 0.5rem;
+		justify-content: center;
+		margin-bottom: 1rem;
+	}
+
+	.mode-button {
+		background: none;
+		border: none;
+		padding: 0.5rem 1rem;
+		border-radius: 4px;
+		font-weight: 500;
+		color: #666;
+		transition: all 0.2s;
+	}
+
+	.mode-button:hover {
+		background-color: #f0f0f0;
+	}
+
+	.mode-button.active {
+		background-color: var(--accent);
+		color: white;
+	}
+
+	.timer-display {
+		font-size: 5rem;
+		font-weight: 700;
+		color: var(--accent);
+		font-family: monospace;
+		margin: 1.5rem 0;
+	}
+
+	.timer-label {
+		font-size: 1.2rem;
+		color: #666;
+		margin-bottom: 2rem;
+	}
+
+	.timer-controls {
+		display: flex;
+		gap: 1rem;
+		margin-bottom: 2rem;
+	}
+
+	.control-button {
+		padding: 0.75rem 2.5rem;
+		border: none;
+		border-radius: 8px;
+		font-weight: 600;
+		font-size: 1.1rem;
+		transition: all 0.2s;
+	}
+
+	.control-button.primary {
+		background-color: var(--accent);
+		color: white;
+	}
+
+	.control-button.primary:hover {
+		background-color: var(--accent-dark);
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(255, 99, 71, 0.3);
+	}
+
+	.control-button.secondary {
+		background-color: #f0f0f0;
+		color: #666;
+	}
+
+	.control-button.secondary:hover {
+		background-color: #e0e0e0;
+	}
+
+	.timer-counter {
+		color: #888;
+		font-size: 0.9rem;
+	}
+
+	.task-section {
+		background-color: white;
+		border-radius: 16px;
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+		padding: 2.5rem;
+	}
+
+	.task-section h2 {
+		font-size: 1.5rem;
+		margin-bottom: 1.5rem;
+		color: var(--text);
+	}
+
+	.task-input-container {
+		display: flex;
+		gap: 0.5rem;
+		margin-bottom: 2rem;
+	}
+
+	#task-input {
+		flex: 1;
+		padding: 0.75rem 1rem;
+		border: 1px solid #ddd;
+		border-radius: 6px;
+		font-size: 1rem;
+	}
+
+	.task-button {
+		background-color: var(--accent);
+		color: white;
+		border: none;
+		border-radius: 6px;
+		padding: 0.75rem 1.5rem;
+		font-weight: 500;
+	}
+
+	.tasks-container {
+		background-color: #f9f9f9;
+		border-radius: 8px;
+		padding: 1.5rem;
+	}
+
+	.tasks-container h3 {
+		font-size: 1.1rem;
+		margin-bottom: 1rem;
+		color: var(--text);
+	}
+
+	#task-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.task-item {
+		display: flex;
+		justify-content: space-between;
+		padding: 0.75rem 1rem;
+		border-bottom: 1px solid #eee;
+	}
+
+	.task-item:last-child {
+		border-bottom: none;
+	}
+
+	.task-name {
+		color: #444;
+	}
+
+	.task-pomodoros {
+		color: var(--accent);
+		font-weight: 500;
+	}
+
+	@media (max-width: 768px) {
+		.timer-container {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		// Timer variables
+		let timerInterval;
+		let minutes = 25;
+		let seconds = 0;
+		let isRunning = false;
+		let currentMode = 'pomodoro';
+		let sessionCount = 1;
+
+		// DOM elements
+		const timeDisplay = document.getElementById('time-remaining');
+		const startButton = document.getElementById('start-button');
+		const resetButton = document.getElementById('reset-button');
+		const modeButtons = document.querySelectorAll('.mode-button');
+		const statusText = document.getElementById('status-text');
+		const sessionCounter = document.getElementById('session-count');
+		const taskInput = document.getElementById('task-input');
+		const saveTaskButton = document.getElementById('save-task');
+		const taskList = document.getElementById('task-list');
+
+		// Format time (convert 5 to "05")
+		function formatTime(time) {
+			return time < 10 ? `0${time}` : time;
+		}
+
+		// Update timer display
+		function updateDisplay() {
+			timeDisplay.textContent = `${formatTime(minutes)}:${formatTime(seconds)}`;
+		}
+
+		// Timer functionality
+		function startTimer() {
+			if (isRunning) {
+				clearInterval(timerInterval);
+				startButton.textContent = 'Start';
+				statusText.textContent = 'Paused';
+				isRunning = false;
+				return;
+			}
+
+			startButton.textContent = 'Pause';
+			statusText.textContent = currentMode === 'pomodoro' ? 'Focus time!' : 'Break time!';
+			isRunning = true;
+
+			timerInterval = setInterval(() => {
+				if (seconds === 0) {
+					if (minutes === 0) {
+						clearInterval(timerInterval);
+						const sound = new Audio('/notification.mp3');
+						sound.play().catch(() => console.log('Audio play failed. User interaction needed.'));
+						
+						if (currentMode === 'pomodoro') {
+							// Increment session count
+							sessionCount++;
+							sessionCounter.textContent = sessionCount;
+							
+							// After 4 pomodoros, suggest a long break
+							if (sessionCount % 4 === 0) {
+								switchMode('long-break');
+							} else {
+								switchMode('short-break');
+							}
+						} else {
+							switchMode('pomodoro');
+						}
+						
+						isRunning = false;
+						startButton.textContent = 'Start';
+						return;
+					}
+					minutes--;
+					seconds = 59;
+				} else {
+					seconds--;
+				}
+				updateDisplay();
+			}, 1000);
+		}
+
+		// Reset timer
+		function resetTimer() {
+			clearInterval(timerInterval);
+			minutes = parseInt(document.querySelector('.mode-button.active').dataset.time);
+			seconds = 0;
+			updateDisplay();
+			startButton.textContent = 'Start';
+			isRunning = false;
+			
+			if (currentMode === 'pomodoro') {
+				statusText.textContent = 'Time to focus!';
+			} else if (currentMode === 'short-break') {
+				statusText.textContent = 'Take a short break!';
+			} else {
+				statusText.textContent = 'Take a long break!';
+			}
+		}
+
+		// Switch between pomodoro, short break, and long break
+		function switchMode(mode) {
+			// Update active button
+			modeButtons.forEach(button => {
+				if (button.dataset.mode === mode) {
+					button.classList.add('active');
+				} else {
+					button.classList.remove('active');
+				}
+			});
+			
+			// Set current mode
+			currentMode = mode;
+			
+			// Reset timer with new time
+			clearInterval(timerInterval);
+			minutes = parseInt(document.querySelector('.mode-button.active').dataset.time);
+			seconds = 0;
+			updateDisplay();
+			isRunning = false;
+			startButton.textContent = 'Start';
+			
+			// Update status text
+			if (mode === 'pomodoro') {
+				statusText.textContent = 'Time to focus!';
+			} else if (mode === 'short-break') {
+				statusText.textContent = 'Take a short break!';
+			} else {
+				statusText.textContent = 'Take a long break!';
+			}
+		}
+
+		// Add a new task
+		function addTask() {
+			const taskText = taskInput.value.trim();
+			if (taskText === '') return;
+			
+			const li = document.createElement('li');
+			li.className = 'task-item';
+			li.innerHTML = `
+				<span class="task-name">${taskText}</span>
+				<span class="task-pomodoros">0/4</span>
+			`;
+			
+			taskList.appendChild(li);
+			taskInput.value = '';
+		}
+
+		// Event listeners
+		startButton.addEventListener('click', startTimer);
+		resetButton.addEventListener('click', resetTimer);
+		
+		modeButtons.forEach(button => {
+			button.addEventListener('click', () => {
+				switchMode(button.dataset.mode);
+			});
+		});
+		
+		saveTaskButton.addEventListener('click', addTask);
+		taskInput.addEventListener('keypress', (e) => {
+			if (e.key === 'Enter') {
+				addTask();
+			}
+		});
+
+		// Initialize timer display
+		updateDisplay();
+	});
+</script>

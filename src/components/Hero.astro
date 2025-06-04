@@ -1,0 +1,200 @@
+---
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Focus Better. Achieve More.</h1>
+      <p>Boost your productivity with the Pomodoro Technique. Our simple timer helps you work in focused intervals and take scheduled breaks for optimal efficiency.</p>
+      <div class="cta-buttons">
+        <a href="#get-started" class="btn btn-primary">Try It Now</a>
+        <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="timer-preview">
+        <div class="timer-display">
+          <span class="time">25:00</span>
+          <div class="timer-label">Focus Time</div>
+        </div>
+        <div class="timer-controls">
+          <button class="timer-button start">Start</button>
+          <button class="timer-button reset">Reset</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: 6rem 0;
+    background: linear-gradient(to bottom right, #fff, #f5f5f5);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    color: var(--text);
+  }
+
+  p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #666;
+    max-width: 540px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary {
+    background-color: var(--accent);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--accent-dark);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 99, 71, 0.3);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--text);
+    border: 2px solid #ddd;
+  }
+
+  .btn-secondary:hover {
+    background-color: #f5f5f5;
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .timer-preview {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .timer-display {
+    text-align: center;
+  }
+
+  .time {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--accent);
+    font-family: monospace;
+    display: block;
+  }
+
+  .timer-label {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    color: #666;
+  }
+
+  .timer-controls {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .timer-button {
+    flex: 1;
+    padding: 0.75rem 0;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  .timer-button.start {
+    background-color: var(--accent);
+    color: white;
+  }
+
+  .timer-button.start:hover {
+    background-color: var(--accent-dark);
+  }
+
+  .timer-button.reset {
+    background-color: #f0f0f0;
+    color: #666;
+  }
+
+  .timer-button.reset:hover {
+    background-color: #e0e0e0;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero {
+      padding: 4rem 0;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin: 0 auto;
+    }
+
+    .cta-buttons {
+      justify-content: center;
+    }
+
+    .hero-image {
+      grid-row: 1;
+      margin-bottom: 2rem;
+    }
+  }
+</style>

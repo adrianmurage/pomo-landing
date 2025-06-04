@@ -1,0 +1,60 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "A productivity tool to help you focus on your work using the Pomodoro Technique" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: #ff6347;
+		--accent-light: #ff8c7a;
+		--accent-dark: #d44027;
+		--background: #f9f9f9;
+		--text: #333;
+		--card-bg: #ffffff;
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: var(--background);
+		color: var(--text);
+	}
+	body {
+		margin: 0;
+		padding: 0;
+		min-height: 100vh;
+	}
+	* {
+		box-sizing: border-box;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		margin: 0;
+		font-weight: 700;
+	}
+	a {
+		color: var(--accent);
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+	button {
+		cursor: pointer;
+	}
+</style>
