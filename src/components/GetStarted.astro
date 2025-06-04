@@ -59,7 +59,7 @@
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
@@ -182,18 +182,46 @@
   @media (max-width: 768px) {
     .container {
       grid-template-columns: 1fr;
+      gap: 2.5rem;
+      padding: 0 1rem;
     }
 
     .get-started {
-      padding: 4rem 0;
+      padding: 3rem 0;
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: 1.75rem;
+      text-align: center;
     }
 
     p {
       font-size: 1.1rem;
+      text-align: center;
+    }
+
+    .cta-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .testimonials {
+      padding: 0 0.5rem;
+    }
+
+    .testimonial {
+      padding: 1.25rem;
+    }
+
+    .quote {
+      font-size: 1rem;
+    }
+
+    .cta-button {
+      width: 100%;
+      justify-content: center;
+      padding: 0.875rem 1.5rem;
     }
   }
 </style>
